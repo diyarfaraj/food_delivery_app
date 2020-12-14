@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/src/widgets/commons.dart';
+import 'package:food_delivery_app/src/widgets/custom_text.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -19,11 +20,9 @@ class _HomeState extends State<Home> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "What would you like to eat? ",
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
+                  child: CustomText(
+                    text: "What do like to eat?",
+                    size: 18,
                   ),
                 ),
                 Stack(children: [
@@ -44,6 +43,39 @@ class _HomeState extends State<Home> {
                 ])
               ],
             ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: grey,
+                      offset: Offset(1, 1),
+                      blurRadius: 4,
+                    ),
+                  ],
+                ),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.search,
+                    color: red,
+                  ),
+                  title: TextField(
+                    decoration: InputDecoration(
+                        hintText: "Find food or a restaurant",
+                        border: InputBorder.none),
+                  ),
+                  trailing: Icon(
+                    Icons.filter_list,
+                    color: red,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
