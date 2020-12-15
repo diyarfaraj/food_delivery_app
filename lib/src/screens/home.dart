@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/widgets/categories.dart';
 import 'package:food_delivery_app/src/widgets/commons.dart';
 import 'package:food_delivery_app/src/widgets/custom_text.dart';
 
@@ -53,7 +54,7 @@ class _HomeState extends State<Home> {
                   color: white,
                   boxShadow: [
                     BoxShadow(
-                      color: grey,
+                      color: Colors.red[100],
                       offset: Offset(1, 1),
                       blurRadius: 4,
                     ),
@@ -74,6 +75,71 @@ class _HomeState extends State<Home> {
                     color: red,
                   ),
                 ),
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Categories(),
+            SizedBox(
+              height: 5,
+            ),
+            //featured title
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomText(
+                text: "Featured",
+                size: 20,
+                color: grey,
+              ),
+            ),
+
+            Container(
+              height: 200,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.red[100],
+                            offset: Offset(1, 1),
+                            blurRadius: 4,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            "images/1.jpg",
+                            height: 140,
+                            width: 140,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CustomText(text: "some food"),
+                              ),
+                              Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             )
           ],
